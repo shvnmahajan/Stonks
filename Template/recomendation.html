@@ -2,23 +2,30 @@
 
 {% block content %}
 
-	{% for recos in recomendations %}
-	<div class="list-group">
-		  <a href="{{project.link}}" class="list-group-item list-group-item-action">
-		    <div class="d-flex w-100 justify-content-between">
-		      <h5 class="mb-1">{{recos.name}}</h5>
-		    </div>
-		    <p class="mb-1">{{recos.call}}</p>
+	{% for reco in recos %}
 
-		  </a>
-	</div>
+		<div class="list-group">
+			{% if reco.call == "sell" %}
+			<div style="background-color:#e8545488" class="list-group-item list-group-item-action">
+			{% elif reco.call == "buy" %}
+			<div style="background-color:#63eb8088" class="list-group-item list-group-item-action">
+			{% else %}
+			<div class="list-group-item list-group-item-action">
+			{% endif %}
+			    <div id = {{loop.index}} class="d-flex w-100 justify-content-between">
+			      <h5 class="mb-1">{{reco.name}}</h5>
+			    </div>
+			    <p class="mb-1">{{reco.call}}</p>
+			</div>
+		</div>
+	
 	{% endfor %}
 
-{% endblock content %}
+{% endblock content%}
 
 
 {% block script %}
 
-	document.getElementById("Projects").className="nav-link active"
+	document.getElementById("Recos").className="nav-link active"
 
-{% endblock script %}
+{% endblock%}
