@@ -6,7 +6,7 @@ def about():
 	return render_template("about.html")
 
 @app.route("/recomendation")
-def education():
+def recomendation():
 	return render_template("recomendation.html",recomendations=recomendations);
 
 if __name__=="__main__":
