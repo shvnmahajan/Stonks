@@ -44,7 +44,7 @@ def about():
 
 @app.route("/recomendation")
 def recomendation():
-	return render_template("recomendation.html",recos=recomendations);
+	return render_template("recomendation.html",recos=recomendations, performance=performance);
 
 if __name__=="__main__":
 	app.run(debug=True)
